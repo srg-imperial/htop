@@ -69,6 +69,7 @@ vx-gcc-gcc_asan: $(HTOP_GCC) $(HTOP_GCC_ASAN)
 $(HTOP_GCC):
 	rm -rf $(INSTALL_BUILD_DIR) || true
 	make -C .. clean || true
+	cd .. ; ./autogen.sh || true
 	cd .. ; CC=$(GCC)  \
   	CFLAGS="$(CFLAGS)" \
   	STRIP="$(STRIP)"   \
@@ -83,6 +84,7 @@ $(HTOP_GCC):
 $(HTOP_GCC_ASAN):
 	rm -rf $(INSTALL_BUILD_DIR) || true
 	make -C .. clean || true
+	cd .. ; ./autogen.sh || true
 	cd .. ; CC=$(GCC)                     \
   	CFLAGS="$(CFLAGS) -fsanitize=address" \
   	LDFLAGS="-fsanitize=address"          \
@@ -122,6 +124,7 @@ vx-clang-clang_asan: $(HTOP_CLANG) $(HTOP_CLANG_ASAN)
 $(HTOP_CLANG):
 	rm -rf $(INSTALL_BUILD_DIR) || true
 	make -C .. clean || true
+	cd .. ; ./autogen.sh || true
 	cd .. ; CC=$(CLANG) \
   	CFLAGS="$(CFLAGS)"  \
   	STRIP="$(STRIP)"    \
@@ -136,6 +139,7 @@ $(HTOP_CLANG):
 $(HTOP_CLANG_ASAN):
 	rm -rf $(INSTALL_BUILD_DIR) || true
 	make -C .. clean || true
+	cd .. ; ./autogen.sh || true
 	cd .. ; CC=$(CLANG)                   \
   	CFLAGS="$(CFLAGS) -fsanitize=address" \
   	LDFLAGS="-fsanitize=address"          \
